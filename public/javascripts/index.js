@@ -19,6 +19,9 @@ $(function () {
                 $("#profile").hide()
                 $("#skills").hide()
                 $("#other").hide()
+                setTimeout(function () {
+                    $("#xxxxx").trigger("click");
+                },5000)
                 break;
             case 'skills':
                 $("#skills").show()
@@ -122,10 +125,10 @@ function initImgMasonry() {
 function initChevron() {
     $('.collapse').on('show.bs.collapse', function() {
         var id = $(this).attr('id');
-        $('button.to-collapse[data-target="#' + id + '"]').html('<i class="fa fa-chevron-up"></i>');
+        $('a.block-collapse[href="#' + id + '"] span.right-icon').html('<i class="fa fa-chevron-up"></i>');
     });
     $('.collapse').on('hide.bs.collapse', function() {
         var id = $(this).attr('id');
-        $('button.to-collapse[data-target="#' + id + '"]').html('<i class="fa fa-chevron-down"></i>');
+        $('a.block-collapse[href="#' + id + '"] span.right-icon').html('<i class="fa fa-chevron-down"></i>');
     });
 }

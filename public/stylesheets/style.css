@@ -250,42 +250,6 @@ hr {
     color: #999999;
 }
 
-
-
-
-.panel-danger {
-    border-color: #E9573F;
+.panel-title a {
+    text-decoration: none;
 }
-
-.panel-danger > .panel-heading {
-    color: #fff;
-    background-color: #E9573F;
-    border-color: #E9573F;
-}
-
-.panel-danger > .panel-heading + .panel-collapse .panel-body {
-    border-top-color: #E9573F;
-}
-
-.panel-danger > .panel-footer + .panel-collapse .panel-body {
-    border-bottom-color: #E9573F;
-}
-
-.panel-danger.panel-block-color > .panel-footer {
-    color: #fff;
-    background-color: #E9573F;
-    border-top: none;
-}
-
-.panel-danger.panel-block-color > .panel-body.bg-danger {
-    background-color: #FC6E51;
-}
-
-.panel-heading .right-content .btn {
-    padding: 3px 5px;
-}
-.btn.btn-rounded-lg {
-    border-radius: 10px;
-}
-
-
