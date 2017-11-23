@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--引入font-awesome字体图标-->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!--引入bootstrap的核心css-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.css" rel="stylesheet">
+    <!--引入jquery-->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!--引入bootstrap的核心js-->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--自定义样式-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            cursor: default;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eeeeee;
+            margin: 10px auto;
+            font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            color: #EB9E05;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #FFF;
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        h1 a {
+            color: #c12c42;
+            font-size: 16px;
+        }
+
+        .accordion {
+            width: 100%;
+            background: #FFF;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .accordion .link {
+            cursor: pointer;
+            display: block;
+            padding: 15px 15px 15px 42px;
+            color: #4D4D4D;
+            font-size: 14px;
+            font-weight: 700;
+            border-bottom: 1px solid #CCC;
+            position: relative;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .accordion li:last-child .link {
+            border-bottom: 0;
+        }
+
+        .accordion li i {
+            position: absolute;
+            top: 16px;
+            left: 12px;
+            font-size: 18px;
+            color: #595959;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .accordion li i.fa-chevron-down {
+            right: 12px;
+            left: auto;
+            font-size: 16px;
+        }
+
+        .accordion li.open .link {
+            color: #EB9E05;
+        }
+
+        .accordion li.open i {
+            color: #EB9E05;
+        }
+
+        .accordion li.open i.fa-chevron-down {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            display: none;
+            background: #444359;
+            font-size: 14px;
+        }
+
+        .submenu li {
+            border-bottom: 1px solid #4b4a5e;
+        }
+
+        .submenu a {
+            display: block;
+            text-decoration: none;
+            color: #d9d9d9;
+            padding: 12px;
+            padding-left: 42px;
+            -webkit-transition: all 0.25s ease;
+            -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+        }
+
+        .submenu a:hover {
+            background: #EB9E05;
+            color: #FFF;
+        }
+
+        .space {
+            padding: 0 20px;
+        }
+
+        ol li span {
+            cursor: pointer;
+        }
+
+        .bre-big-title {
+            font-size: 30px;
+            color: #409EFF;
+        }
+
+        .user-name {
+            left: 140px;
+            padding: 10px 0;
+            color: #4D4D4D;
+            font-size: 28px;
+            font-weight: 500;
+            margin: 3px 0;
+        }
+
+        .name-en {
+            margin-left: 20px;
+            color: #4D4D4D;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .contect {
+            font-size: 16px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .intention-content {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .breadcrumb {
+            background-color: #eeeeee;
+        }
+
+        .tag {
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 10px;
+            background-color: #777;
+            color: #fff;
+            border-radius: 4px;
+            padding: 1px 5px;
+        }
+
+        .div-margin {
+            padding: 15px 0 15px;
+        }
+
+        hr {
+            border: 1px red solid;
+        }
+
+        .item-detail {
+            font-size: 16px;;
+            color: #555;
+            margin: 2px 0
+        }
+
+        .item-name {
+            font-size: 20px;;
+            color: #555;
+            font-weight: 600
+        }
+
+        .item-time {
+            color: #999;
+            margin: 4px 0
+        }
+
+        .progress-out {
+            height: 4px;
+            margin-top: 30px
+        }
+
+        .progress-in {
+            width: 100%;
+            height: 4px
+        }
+
+        .font-big {
+            font-size: 45px;
+        }
+
+        .font-mid {
+            font-size: 27px;
+            height: 64px;
+        }
+
+        .font-mid-inline {
+            line-height: 64px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <!--banner-->
+        <div>
+            <ol class="breadcrumb">
+                <li data-target="profile"><span class="bre-big-title">个人简历</span></li>
+                <li data-target=""><span class="bre-title">陈鹏</span></li>
+                <li class="active">基本信息</li>
+            </ol>
+        </div>
+        <!--banner end-->
+
+        <!--content-->
+        <div>
+            <!--submenu-->
+            <div class="col-md-3">
+                <ul class="accordion accordion-menu">
+                    <li>
+                        <div class="link" data-target="profile">
+                            <i class="fa fa-address-card"></i><span class="space">详细信息</span><i
+                                class="fa fa-chevron-down fa-fw"></i>
+                        </div>
+                        <ul class="submenu">
+                            <li data-target="programs"><a><span class="space">项目经历</span></a></li>
+                            <li data-target="skills"><a><span class="space">技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能</span></a>
+                            </li>
+                            <li data-target="other"><a><span class="space">其&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;他</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--submenu end-->
+
+            <!--main content-->
+            <div id="profile" class="col-md-9" style="background-color: #fff;border-radius: 4px">
+                <div class="clearfix div-margin">
+                    <div class="col-md-2  col-xs-5">
+                        <img class="img-responsive img-circle" alt="Responsive image" width="120"
+                             src="https://www.maoniangv5.win/images/35d23697d7261fc610a8a8571cbbd031.jpeg">
+                    </div>
+                    <div class="col-md-5 col-xs-7">
+                        <div class="user-name"><span>陈 鹏</span><span class="name-en">Chen Peng</span></div>
+                        <div class="text-muted">
+                            <i class="fa fa-map-marker fa-fw"></i>
+                            <span class="contect">成 都</span>
+                        </div>
+                        <div class="text-muted">
+                            <i class="fa fa-tags fa-fw"></i>
+                            <span class="tag">Node</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">JS</span>
+                            <span class="tag">VUE</span>
+                        </div>
+                    </div>
+                    <div class="col-md-5  col-xs-12">
+                        <div class="pull-right">
+                            <div class="text-muted text-right">
+                                <span class="intention-content text-danger">全职</span>
+                            </div>
+                            <div class="text-muted text-right">
+                                <span class="intention-content text-danger">两周到岗</span>
+                            </div>
+                            <div class="text-muted text-right">
+                                <span class="intention-content text-danger">WEB前端开发</span>
+                            </div>
+                            <div class="text-muted text-right">
+                                <i class="fa fa-phone fa-fw"></i>
+                                <span class="contect">159 0282 0168</span>
+                            </div>
+                            <div class="text-muted text-right">
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <span class="contect">1223cpmy@163.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix div-margin">
+                    <div class="clearfix">
+                        <div class="col-md-1">
+                            <div class="text-primary font-big">
+                                <i class="fa fa-mortar-board  fa-fw"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-primary font-mid">
+                                <span class="font-mid-inline">教育经历</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="progress progress-out">
+                                <div class="progress-bar progress-in" role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+
+                        <div class="col-md-3">
+                            <div class="item-time pull-right">
+                                <span>2012.09 -- 2016.7</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item-name">
+                                <span>电子科技大学</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item-detail">
+                                <span>信息与软件工程学院</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="item-detail">
+                                <span>软件工程</span>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="item-detail pull-right">
+                                <span>本科</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix div-margin">
+                    <div class="clearfix">
+                        <div class="col-md-1">
+                            <div class="text-primary font-big">
+                                <i class="fa fa-file-text  fa-fw"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-primary font-mid">
+                                <span class="font-mid-inline">工作经历</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="progress progress-out">
+                                <div class="progress-bar progress-in" role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-3">
+                            <div class="item-time pull-right">
+                                <span>2016.08 -- 至今</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="item-name">
+                                <span>万达信息股份有限公司成都分公司</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="item-detail">
+                                <span>研发中心</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="item-detail pull-right">
+                                <span>WEB前端开发</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>开发</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>云平台：账户系统、财务系统、故障系统、配额系统</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3">
+                            <div class="item-detail">
+                                <span>国卫网卫生信息工程应用平台（二期）</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3">
+                            <div class="item-detail">
+                                <span>长三角疾控数据共享平台（一期）</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>重构</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>云平台：配额系统前端重构（VUE）、财务系统计费后台</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>其他</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>团队Node框架升级</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="programs" class="col-md-9" style="background-color: #fff;border-radius: 4px">
+                <div class="clearfix div-margin">
+                    <div class="clearfix">
+                        <div class="col-md-1">
+                            <div class="text-primary font-big">
+                                <i class="fa fa-file-text  fa-fw"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-primary font-mid">
+                                <span class="font-mid-inline">工作经历</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="progress progress-out">
+                                <div class="progress-bar progress-in" role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-3">
+                            <div class="item-time pull-right">
+                                <span>2016.08 -- 至今</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="item-name">
+                                <span>万达信息股份有限公司成都分公司</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="item-detail">
+                                <span>研发中心</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="item-detail pull-right">
+                                <span>WEB前端开发</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>开发</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>云平台：账户系统、财务系统、故障系统、配额系统</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3">
+                            <div class="item-detail">
+                                <span>国卫网卫生信息工程应用平台（二期）</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3">
+                            <div class="item-detail">
+                                <span>长三角疾控数据共享平台（一期）</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>重构</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>云平台：配额系统前端重构（VUE）、财务系统计费后台</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>其他</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>团队Node框架升级</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="skills" class="col-md-9" style="background-color: #fff;border-radius: 4px">
+                <div class="clearfix div-margin">
+                    <div class="clearfix">
+                        <div class="col-md-1">
+                            <div class="text-primary font-big">
+                                <i class="fa fa-gears  fa-fw"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-primary font-mid">
+                                <span class="font-mid-inline">技术线路</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="progress progress-out">
+                                <div class="progress-bar progress-in" role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>目前</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>入职万达信息后，曾有过为期一个月的J2EE框架的培训，主要是jsp+tomcat+mysql。</span>
+                                <span>而后出于团队及项目需要，现已全部投入到nodejs方向进行前端开发工作。</span>
+                                <span>最近做过一期VUE的重构，对于现在的数据驱动型前端框架很感兴趣。</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <div class="item-detail pull-right">
+                                <span>计划</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="item-detail">
+                                <span>对现在很流行的React框架很感兴趣，也有意向这个方向发展。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="other" class="col-md-9" style="background-color: #fff;border-radius: 4px">
+                <div class="clearfix div-margin">
+                    <div class="clearfix">
+                        <div class="col-md-1">
+                            <div class="text-primary font-big">
+                                <i class="fa fa-align-left  fa-fw"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-primary font-mid">
+                                <span class="font-mid-inline">个人文件</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="progress progress-out">
+                                <div class="progress-bar progress-in" role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="container-masonry magnific-popup-wrap">
+                            <div id="img-show-list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--main content end-->
+        </div>
+        <!--content end-->
+    </div>
+
+</div>
+<script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+
+<script>
+    $(function () {
+        var accordion = new Accordion($('.accordion-menu'), false);
+        $("#profile").show()
+        $("#programs").hide()
+        $("#skills").hide()
+        $("#other").hide()
+        $("[data-target]").on('click', function (e) {
+            switch ($(this).data('target')) {
+                case 'profile':
+                    $("#profile").show()
+                    $("#programs").hide()
+                    $("#skills").hide()
+                    $("#other").hide()
+                    break;
+                case 'programs':
+                    $("#programs").show()
+                    $("#profile").hide()
+                    $("#skills").hide()
+                    $("#other").hide()
+                    break;
+                case 'skills':
+                    $("#skills").show()
+                    $("#programs").hide()
+                    $("#profile").hide()
+                    $("#other").hide()
+                    break;
+                case 'other':
+                    $("#other").show()
+                    $("#programs").hide()
+                    $("#skills").hide()
+                    $("#profile").hide()
+                    initImage()
+                    break;
+                default:
+                    return
+            }
+        })
+    });
+
+    function Accordion(el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+
+        // Variables privadas
+        var links = this.el.find('.link');
+        // Evento
+        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+    }
+
+    Accordion.prototype.dropdown = function (e) {
+        var $el = e.data.el,
+            $this = $(this),
+            $next = $this.next();
+
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+
+        if (!e.data.multiple) {
+            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+        }
+        ;
+    }
+
+    function initImage() {
+        var imgUrl = [
+            {title: '毕业证书', url: 'https://www.maoniangv5.win/images/c0485aa1d2e710abf7c0fdce7c5868e2.jpeg'},
+            {title: '学位证书', url: 'https://www.maoniangv5.win/images/dee87a47edb37334a41f3583bccc9aef.jpeg'},
+            {title: '卓越证书', url: 'https://www.maoniangv5.win/images/ef393098d9395e6e64ec0b596261d6c2.jpeg'}
+        ]
+        var str = '';
+        imgUrl.map(function (index) {
+            str += '<div class="col-md-4 col-xs-6">' +
+                '<div>' +
+                '<a class="zooming" href="' + index.url + '" title="' + index.title + '">' +
+                '<img src="' + index.url + '" class="img-responsive" alt="' + index.title + '" height="100%" width="auto">' +
+                '</a>' +
+                '<div>' +
+                '<p>' + index.title + '</p>' +
+                '</div> </div> </div>'
+        })
+        $('#img-show-list').html(str);
+        initImgMasonry()
+    }
+
+    // 初始化图片zoom
+    function initImgMasonry() {
+        if ($('.magnific-popup-wrap').length > 0) {
+            $('.magnific-popup-wrap').each(function () {
+                "use strict";
+                $(this).magnificPopup({
+                    delegate: 'a.zooming',
+                    type: 'image',
+                    removalDelay: 300,
+                    mainClass: 'mfp-fade',
+                    gallery: {
+                        enabled: true
+                    }
+                });
+            });
+        }
+
+        if ($('.inline-popups').length > 0) {
+            $('.inline-popups').magnificPopup({
+                delegate: 'a',
+                removalDelay: 500,
+                callbacks: {
+                    beforeOpen: function () {
+                        this.st.mainClass = this.st.el.attr('data-effect');
+                    }
+                },
+                midClick: true
+            });
+        }
+        $('.magnific-img').magnificPopup({
+            type: 'image',
+            removalDelay: 300,
+            mainClass: 'mfp-fade'
+        });
+    }
+</script>
+</body>
+</html>
