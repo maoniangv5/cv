@@ -2,10 +2,10 @@ $(function () {
     var accordion = new Accordion($('.accordion-menu'), false);
     var programs = new Accordion($('.programs-menu'), false);
     initChevron()
-    $("#profile").show()
-    $("#programs").hide()
-    $("#skills").hide()
-    $("#other").hide()
+    $("#profile").show();
+    $("#programs").hide();
+    $("#skills").hide();
+    $("#other").hide();
     $("[data-target]").on('click', function (e) {
         switch ($(this).data('target')) {
             case 'profile':
@@ -38,6 +38,18 @@ $(function () {
                 break;
             default:
                 return
+        }
+    });
+    $("[data-program]").on('click', function (e) {
+        var a = "[data-pro="+$(this).data('program')+"]"
+        $(a).trigger("click")
+
+    });
+    $('.programs-menu>li').on('click', function () {
+        if (!$(this).hasClass('open')){
+            console.log('all close')
+        }else{
+            console.log('some open')
         }
     })
 });
