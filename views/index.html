@@ -14,6 +14,7 @@
     <!--自定义样式-->
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link href="https://cdn.bootcss.com/mui/3.4.0/css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/common.css">
 
     <!--引入jquery-->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -24,16 +25,31 @@
     <script src="https://cdn.bootcss.com/mui/3.4.0/js/mui.min.js"></script>
     <script>
         $(function () {
-            if (navigator.userAgent.toLowerCase().indexOf('mobile')>0) {
-                mui.alert("手机适配中......", "( ´◔‸◔`)哦吼");
+            var location = '<%= basic.location %>';
+            var parent_city = '<%= basic.parent_city %>';
+            var update = '<%= update.loc %>';
+            var cond_code = '<%= now.cond_code %>';
+            var cond_txt = '<%= now.cond_txt %>';
+            var tmp = '<%= now.tmp %>';
+            var wind_dir = '<%= now.wind_dir %>';
+            var wind_sc = '<%= now.wind_sc %>';
+            var wind_spd = '<%= now.wind_spd %>';
+            var hum = '<%= now.wind_spd %>';
+            var pcpn = '<%= now.wind_spd %>';
+            var vis = '<%= now.wind_spd %>';
+            var wind_spd = '<%= now.wind_spd %>';
+
+            if (navigator.userAgent.toLowerCase().indexOf('mobile') > 0) {
+                mui.alert("手机适配中，请使用PC访问 >_<", "温馨提示");
+                $('.phone').removeClass('hide')
             } else {
-                $('.container').removeClass('hide')
+                $('.pc').removeClass('hide')
             }
         })
     </script>
 </head>
 <body>
-<div class="container hide">
+<div class="container hide pc">
     <div class="row">
 
         <!--banner-->
@@ -297,7 +313,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="csj" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="csj" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-1">
                                                 长三角疾控数据共享平台（一期）
                                                 <span class="right-content">
@@ -318,7 +335,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="gww" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="gww" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-2">
                                                 国卫网卫生信息工程应用平台（二期）
                                                 <span class="right-content">
@@ -339,7 +357,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="pe" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="pe" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-3">
                                                 万达云--配额系统
                                                 <span class="right-content">
@@ -360,7 +379,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="gz" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="gz" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-4">
                                                 万达云--故障系统
                                                 <span class="right-content">
@@ -381,7 +401,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="cw" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="cw" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-5">
                                                 万达云--财务系统
                                                 <span class="right-content">
@@ -402,7 +423,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="rpe" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="rpe" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-6">
                                                 万达云--配额重构（VUE）
                                                 <span class="right-content">
@@ -423,7 +445,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="rz" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="rz" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-7">
                                                 故障系统软著
                                                 <span class="right-content">
@@ -444,7 +467,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
-                                            <a data-pro="kj" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+                                            <a data-pro="kj" class="block-collapse" data-parent="#accordion-2"
+                                               data-toggle="collapse"
                                                href="#accordion-2-child-8">
                                                 团队框架升级（node）
                                                 <span class="right-content">
@@ -548,6 +572,7 @@
     </div>
 
 </div>
+
 <script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 <script src="javascripts/index.js"></script>
 
