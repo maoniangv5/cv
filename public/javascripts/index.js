@@ -81,7 +81,7 @@ Accordion.prototype.dropdown = function (e) {
 function initImage() {
     var imgUrl = [
         {title: '毕业证书', url: 'images/coll/img1.jpg'},
-        {title: '其他证书', url: 'images/coll/img2.jpg'}
+        {title: '学位证书', url: 'images/coll/img2.jpg'}
     ]
     var str = '';
     imgUrl.map(function (index) {
