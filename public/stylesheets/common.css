@@ -307,8 +307,13 @@ hr {
         margin: 0;
     }
 
+    .avatar img {
+        width: 100px;
+    }
+
     .profile {
         display: block;
+        margin: 0.15rem 0;
     }
 
     .profile-name {
