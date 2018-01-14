@@ -2,578 +2,334 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>vc</title>
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
     <link href="stylesheets/mui/mui.min.css" rel="stylesheet">
     <link href="stylesheets/common.css" rel="stylesheet">
-
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="javascripts/mui/mui.min.js"></script>
-
-    <script>
-        $(function () {
-            var location = '<%= basic.location %>';
-            var parent_city = '<%= basic.parent_city %>';
-            var update = '<%= update.loc %>';
-            var cond_code = '<%= now.cond_code %>';
-            var cond_txt = '<%= now.cond_txt %>';
-            var tmp = '<%= now.tmp %>';
-            var wind_dir = '<%= now.wind_dir %>';
-            var wind_sc = '<%= now.wind_sc %>';
-            var wind_spd = '<%= now.wind_spd %>';
-            var hum = '<%= now.wind_spd %>';
-            var pcpn = '<%= now.wind_spd %>';
-            var vis = '<%= now.wind_spd %>';
-            var wind_spd = '<%= now.wind_spd %>';
-            if (navigator.userAgent.toLowerCase().indexOf('mobile') > 0) {
-                $(".phone img").attr('src','images/weather_icon/'+cond_code+'.png');
-                $('.phone').removeClass('hide')
-                mui.alert("手机适配中......", "( ´◔‸◔`)哦吼");
-            } else {
-                $('.pc').removeClass('hide');
-            }
-        })
-    </script>
 </head>
 <body>
-<div class="container hide pc">
+<div class="container">
     <div class="row">
-
-        <!--banner-->
-        <div>
-            <ol class="breadcrumb">
-                <li data-target="profile"><span class="bre-big-title">个人简历</span></li>
-                <li data-target=""><span class="bre-title">陈鹏</span></li>
-                <li class="active">基本信息</li>
-            </ol>
+        <div class="col-xs-4 avatar">
+            <img class="img-responsive img-circle" alt="Responsive image"
+                 src="images/avatar/avatar.jpeg">
         </div>
-        <!--banner end-->
+        <div class="col-xs-8 text-right">
+            <span class="profile-name profile">陈鹏</span>
 
-        <!--content-->
-        <div>
-            <!--submenu-->
-            <div class="col-md-3">
-                <ul class="accordion accordion-menu">
-                    <li>
-                        <div class="link" data-target="profile">
-                            <i class="fa fa-address-card"></i>详细信息<i
-                                class="fa fa-chevron-down fa-fw"></i>
-                        </div>
-                        <ul class="submenu">
-                            <li data-target="programs"><a>项目经历</a></li>
-                            <li data-target="skills"><a>技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能</a>
-                            </li>
-                            <li data-target="other"><a>其&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;他</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!--submenu end-->
-
-            <!--main content-->
-            <div id="profile" class="col-md-9" style="background-color: #fff;border-radius: 4px">
-                <div class="clearfix div-margin">
-                    <div class="col-md-2  col-xs-5">
-                        <img class="img-responsive img-circle" alt="Responsive image" width="120"
-                             src="https://www.maoniangv5.win/images/35d23697d7261fc610a8a8571cbbd031.jpeg">
-                    </div>
-                    <div class="col-md-5 col-xs-7">
-                        <div class="user-name"><span>陈 鹏</span><span class="name-en">Chen Peng</span></div>
-                        <div class="text-muted">
-                            <i class="fa fa-map-marker fa-fw"></i>
-                            <span class="contect">成 都</span>
-                        </div>
-                        <div class="text-muted">
-                            <i class="fa fa-tags fa-fw"></i>
-                            <span class="tag">Node</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">JS</span>
-                            <span class="tag">VUE</span>
-                        </div>
-                    </div>
-                    <div class="col-md-5  col-xs-12">
-                        <div class="pull-right">
-                            <div class="text-muted text-right">
-                                <span class="intention-content text-danger">全职</span>
-                            </div>
-                            <div class="text-muted text-right">
-                                <span class="intention-content text-danger">两周到岗</span>
-                            </div>
-                            <div class="text-muted text-right">
-                                <span class="intention-content text-danger">WEB前端开发</span>
-                            </div>
-                            <div class="text-muted text-right">
-                                <i class="fa fa-phone fa-fw"></i>
-                                <span class="contect">159 0282 0168</span>
-                            </div>
-                            <div class="text-muted text-right">
-                                <i class="fa fa-envelope fa-fw"></i>
-                                <span class="contect">1223cpmy@163.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix div-margin">
-                    <div class="clearfix">
-                        <div class="col-md-1">
-                            <div class="text-primary font-big">
-                                <i class="fa fa-mortar-board  fa-fw"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="text-primary font-mid">
-                                <span class="font-mid-inline">教育经历</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress progress-out">
-                                <div class="progress-bar progress-in" role="progressbar">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-
-                        <div class="col-md-3">
-                            <div class="item-time pull-right">
-                                <span>2012.09 -- 2016.7</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="item-name">
-                                <span>电子科技大学</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="item-detail">
-                                <span>信息与软件工程学院</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="item-detail">
-                                <span>软件工程</span>
-                            </div>
-                        </div>
-                        <div class="col-md-1">
-                            <div class="item-detail pull-right">
-                                <span>本科</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix div-margin">
-                    <div class="clearfix">
-                        <div class="col-md-1">
-                            <div class="text-primary font-big">
-                                <i class="fa fa-file-text  fa-fw"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="text-primary font-mid">
-                                <span class="font-mid-inline">工作经历</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress progress-out">
-                                <div class="progress-bar progress-in" role="progressbar">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="col-md-3">
-                            <div class="item-time pull-right">
-                                <span>2016.08 -- 至今</span>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="item-name">
-                                <span>万达信息股份有限公司成都分公司</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="item-detail">
-                                <span>研发中心</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="item-detail pull-right">
-                                <span>WEB前端开发</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="col-md-3 pull-left">
-                            <div class="item-detail pull-right">
-                                <span>开发</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-detail">
-                                <span>云平台：账户系统、财务系统、故障系统、配额系统</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9 col-md-offset-3">
-                            <div class="item-detail">
-                                <span>国卫网卫生信息工程应用平台（二期）</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9 col-md-offset-3">
-                            <div class="item-detail">
-                                <span>长三角疾控数据共享平台（一期）</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3 pull-left">
-                            <div class="item-detail pull-right">
-                                <span>重构</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-detail">
-                                <span>云平台：配额系统前端重构（VUE）、财务系统计费后台</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3 pull-left">
-                            <div class="item-detail pull-right">
-                                <span>其他</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-detail">
-                                <span>团队Node框架升级</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9 col-md-offset-3">
-                            <div class="item-detail">
-                                <span>软著筹备及文档编写</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="programs" class="col-md-9" style="background-color: #fff;border-radius: 4px">
-                <div class="clearfix div-margin">
-                    <div class="clearfix">
-                        <div class="col-md-1">
-                            <div class="text-primary font-big">
-                                <i class="fa fa-file-text  fa-fw"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="progress progress-out">
-                                <div class="progress-bar progress-in" role="progressbar">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="col-md-3">
-                            <ul class="accordion programs-menu">
-                                <li>
-                                    <div class="link">开发<i class="fa fa-chevron-down"></i></div>
-                                    <ul class="submenu">
-                                        <li><a data-program="csj">长三角</a></li>
-                                        <li><a data-program="gww">国卫网</a></li>
-                                        <li><a data-program="pe">配额</a></li>
-                                        <li><a data-program="gz">故障</a></li>
-                                        <li><a data-program="cw">财务</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="link">重构<i class="fa fa-chevron-down"></i></div>
-                                    <ul class="submenu">
-                                        <li><a data-program="rpe">配额</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="link"></i>其他<i class="fa fa-chevron-down"></i></div>
-                                    <ul class="submenu">
-                                        <li><a data-program="rz">软著</a></li>
-                                        <li><a data-program="kj">框架升级</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="panel-group" id="accordion-2">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="csj" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-1">
-                                                长三角疾控数据共享平台（一期）
-                                                <span class="right-content">
-											<span class="right-icon pull-right">
-												<i class="fa fa-chevron-down icon-collapse"></i>
-											</span>
-										</span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-1" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-primary -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="gww" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-2">
-                                                国卫网卫生信息工程应用平台（二期）
-                                                <span class="right-content">
-											<span class="right-icon pull-right">
-												<i class="fa fa-chevron-down icon-collapse"></i>
-											</span>
-										</span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-2" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-success -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="pe" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-3">
-                                                万达云--配额系统
-                                                <span class="right-content">
-											<span class="right-icon pull-right">
-												<i class="fa fa-chevron-down icon-collapse"></i>
-											</span>
-										</span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-3" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-info -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="gz" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-4">
-                                                万达云--故障系统
-                                                <span class="right-content">
-											<span class="right-icon pull-right">
-												<i class="fa fa-chevron-down icon-collapse"></i>
-											</span>
-										</span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-4" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-danger -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="cw" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-5">
-                                                万达云--财务系统
-                                                <span class="right-content">
-											        <span class="right-icon pull-right">
-												        <i class="fa fa-chevron-down icon-collapse"></i>
-											        </span>
-										        </span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-5" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-warning -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="rpe" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-6">
-                                                万达云--配额重构（VUE）
-                                                <span class="right-content">
-											        <span class="right-icon pull-right">
-												        <i class="fa fa-chevron-down icon-collapse"></i>
-											        </span>
-										        </span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-6" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-warning -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="rz" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-7">
-                                                故障系统软著
-                                                <span class="right-content">
-											        <span class="right-icon pull-right">
-												        <i class="fa fa-chevron-down icon-collapse"></i>
-											        </span>
-										        </span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-7" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-warning -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            <a data-pro="kj" class="block-collapse" data-parent="#accordion-2"
-                                               data-toggle="collapse"
-                                               href="#accordion-2-child-8">
-                                                团队框架升级（node）
-                                                <span class="right-content">
-											        <span class="right-icon pull-right">
-												        <i class="fa fa-chevron-down icon-collapse"></i>
-											        </span>
-										        </span>
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div id="accordion-2-child-8" class="collapse">
-                                        <div class="panel-body">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div><!-- /.panel-body -->
-                                    </div><!-- /.collapse in -->
-                                </div><!-- /.panel panel-warning -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="skills" class="col-md-9" style="background-color: #fff;border-radius: 4px">
-                <div class="clearfix div-margin">
-                    <div class="clearfix">
-                        <div class="col-md-1">
-                            <div class="text-primary font-big">
-                                <i class="fa fa-gears  fa-fw"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="text-primary font-mid">
-                                <span class="font-mid-inline">技术线路</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress progress-out">
-                                <div class="progress-bar progress-in" role="progressbar">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="col-md-3 pull-left">
-                            <div class="item-detail pull-right">
-                                <span>目前</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-detail">
-                                <span>入职万达信息后，曾有过为期一个月的J2EE框架的培训，主要是jsp+tomcat+mysql。</span>
-                                <span>而后出于团队及项目需要，现已全部投入到nodejs方向进行前端开发工作。</span>
-                                <span>最近做过一期VUE的重构，对于现在的数据驱动型前端框架很感兴趣。</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3 pull-left">
-                            <div class="item-detail pull-right">
-                                <span>计划</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-detail">
-                                <span>对现在很流行的React框架很感兴趣，也有意向这个方向发展。</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="other" class="col-md-9" style="background-color: #fff;border-radius: 4px">
-                <div class="clearfix div-margin">
-                    <div class="clearfix">
-                        <div class="col-md-1">
-                            <div class="text-primary font-big">
-                                <i class="fa fa-align-left  fa-fw"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="text-primary font-mid">
-                                <span class="font-mid-inline">个人文件</span>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress progress-out">
-                                <div class="progress-bar progress-in" role="progressbar">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="container-masonry magnific-popup-wrap">
-                            <div id="img-show-list">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--main content end-->
+            <span class="profile-city profile">
+                <i class="fa fa-map-marker fa-fw"></i>
+                <span class="contect">成 都</span>
+            </span>
+            <span class="profile-phone profile">
+                <i class="fa fa-phone fa-fw"></i>
+                <span class="contect">159 0282 0168</span>
+            </span>
+            <span class="profile-name profile">
+                <i class="fa fa-envelope fa-fw"></i>
+                <span class="contect">1223cpmy@163.com</span>
+            </span>
         </div>
-        <!--content end-->
     </div>
-
-</div>
-<div class="container hide phone">
-    <div class="phone-info">
-        <div>
-            <img src="" alt="">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-primary item-title">
+                <i class="fa fa-mortar-board fa-fw"></i>
+                <span>教育</span>
+                <hr>
+            </div>
         </div>
-        <div class="phone-detail"><span>海口</span></div>
+        <div class="col-xs-3">
+            <div>
+                <span>2016</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="text-center">
+                <span>电子科技大学</span>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="text-right">
+                <span>本科</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="accordion-2">
+        <a data-pro="csj" class="block-collapse" data-parent="#accordion-2" data-toggle="collapse"
+           href="#accordion-2-child-1">
+            <div class="col-xs-12">
+                <div class="text-primary item-title">
+                    <i class="fa fa-file-text fa-fw"></i>
+                    <span>
+                        工作
+                        <span class="right-content">
+							<span class="pull-right">
+								<i class="fa fa-chevron-down icon-collapse"></i>
+                            </span>
+                        </span>
+                    </span>
+                    <hr>
+                </div>
+            </div>
+        </a>
+        <div class="col-xs-12 collapse" id="accordion-2-child-1">
+            <div class="panel-group" id="accordion-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="csj" class="block-collapse" data-parent="#accordion-1" data-toggle="collapse"
+                               href="#accordion-1-child-1">
+                                椰城市民云
+                                <span class="right-content">
+									<span class="right-icon pull-right">
+										<i class="fa fa-chevron-down icon-collapse"></i>
+									</span>
+								</span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-1" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">公积金、违章、文体活动、菜价的开发工作</span>
+                            <span class="program-time">2017-12 -- 至今</span>
+                            <span class="program-content">1、公积金：页面和后台api开发</span>
+                            <span class="program-content">2、违章：页面开发</span>
+                            <span class="program-content">3、文体活动：页面和后台api开发</span>
+                            <span class="program-content">4、菜价：与第三方公司对接，页面和后台api开发</span>
+                            <span class="program-content">4、主要使用：node、mysql、h5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="gww" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-2">
+                                万达信息云
+                                <span class="right-content">
+									<span class="right-icon pull-right">
+										<i class="fa fa-chevron-down icon-collapse"></i>
+									</span>
+								</span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-2" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">万达信息云开发工作</span>
+                            <span class="program-time">2016-10 -- 2017.10</span>
+                            <span class="program-content">1、故障系统：数据库及api设计，后台api开发</span>
+                            <span class="program-content">2、配额系统：api设计、页面和后台api开发</span>
+                            <span class="program-content">3、其他模块：页面开发（账户、财务、门户）</span>
+                            <span class="program-content">4、主要使用：node、mongodb</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="pe" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-3">
+                                国卫网平台
+                                <span class="right-content">
+									<span class="right-icon pull-right">
+										<i class="fa fa-chevron-down icon-collapse"></i>
+									</span>
+								</span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-3" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">国卫网平台cms开发工作</span>
+                            <span class="program-time">2017-5 -- 2017.5</span>
+                            <span class="program-content">1、api设计，后台api开发</span>
+                            <span class="program-content">2、页面开发</span>
+                            <span class="program-content">3、主要使用：node、mongodb</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="gz" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-4">
+                                长三角平台
+                                <span class="right-content">
+                                    <span class="right-icon pull-right">
+                                        <i class="fa fa-chevron-down icon-collapse"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-4" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">长三角疾控共享平台开发工作</span>
+                            <span class="program-time">2017-10 -- 2017.10</span>
+                            <span class="program-content">1、后台api开发</span>
+                            <span class="program-content">2、页面开发</span>
+                            <span class="program-content">3、主要使用：node、mongodb</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="cw" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-5">
+                                配额前端重构（VUE）
+                                <span class="right-content">
+                                    <span class="right-icon pull-right">
+                                        <i class="fa fa-chevron-down icon-collapse"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-5" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">万达信息云配额重构工作（VUE）</span>
+                            <span class="program-time">2017-8 -- 2017.8</span>
+                            <span class="program-content">1、项目spring_backlog跟进</span>
+                            <span class="program-content">2、页面VUE重构</span>
+                            <span class="program-content">3、主要使用：vue</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="rpe" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-6">
+                                Node框架升级
+                                <span class="right-content">
+                                    <span class="right-icon pull-right">
+                                        <i class="fa fa-chevron-down icon-collapse"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-6" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">Node框架升级工作</span>
+                            <span class="program-time">2017-7 -- 2017.7</span>
+                            <span class="program-content">1、项目spring_backlog跟进</span>
+                            <span class="program-content">2、Node依赖包升级、测试</span>
+                            <span class="program-content">3、公共方法整理与封装</span>
+                            <span class="program-content">3、使用文档编写</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-pro="rz" class="block-collapse" data-parent="#accordion-1"
+                               data-toggle="collapse"
+                               href="#accordion-1-child-7">
+                                故障系统软著
+                                <span class="right-content">
+                                    <span class="right-icon pull-right">
+                                        <i class="fa fa-chevron-down icon-collapse"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="accordion-1-child-7" class="collapse">
+                        <div class="panel-body">
+                            <span class="program-title">故障系统软著工作</span>
+                            <span class="program-time">2017-11 -- 2017.11</span>
+                            <span class="program-content">1、故障系统软著资料整理</span>
+                            <span class="program-content">1、软著文档编写</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="accordion-3">
+        <a data-pro="csj" class="block-collapse" data-parent="#accordion-3" data-toggle="collapse"
+           href="#accordion-3-child-1">
+            <div class="col-xs-12">
+                <div class="text-primary item-title">
+                    <i class="fa fa-gears fa-fw"></i>
+                    <span>
+                        技能
+                        <span class="right-content">
+							<span class="right-icon pull-right">
+								<i class="fa fa-chevron-down icon-collapse"></i>
+                            </span>
+                        </span>
+                    </span>
+                    <hr>
+                </div>
+            </div>
+        </a>
+        <div class="collapse" id="accordion-3-child-1">
+            <div class="col-xs-12 skill">
+                <span>目前</span>
+                <hr>
+                <p>当前技术方向为node</p>
+                <p>开发工作中，后台主要使用node、express、mongoDB等进行开发，页面使用Bootstrap、jQuery、VUE等框架进行开发</p>
+                <p>近期在椰城市民云的开发工作中，后台主要使用node、express、mysql等进行开发，页面主要使用H5、mui进行开发</p>
+                <p>开发模式为敏捷开发，即快速迭代</p>
+                <p>团队版本控制，使用自有搭建的GitLab</p>
+            </div>
+            <div class="col-xs-12 skill">
+                <span>计划</span>
+                <hr>
+                <p>有意向React等数据驱动型前端框架发展</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="row" id="accordion-4">
+        <a data-pro="csj" class="block-collapse" data-parent="#accordion-4" data-toggle="collapse"
+           href="#accordion-4-child-1">
+            <div class="col-xs-12">
+                <div class="text-primary item-title">
+                    <i class="fa fa-align-left fa-fw"></i>
+                    <span>
+                        其他
+                        <span class="right-content">
+							<span class="right-icon pull-right">
+								<i class="fa fa-chevron-down icon-collapse"></i>
+                            </span>
+                        </span>
+                    </span>
+                    <hr>
+                </div>
+            </div>
+        </a>
+        <div class="col-xs-12 collapse" id="accordion-4-child-1">
+            <div class="container-masonry magnific-popup-wrap">
+                <div id="img-show-list">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</div>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="javascripts/mui/mui.min.js"></script>
 <script src="lib/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
 <script src="javascripts/index.js"></script>
-
+<script>
+    $(function () {
+        initImage();
+    })
+</script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 $(function () {
     var accordion = new Accordion($('.accordion-menu'), false);
-    var programs = new Accordion($('.programs-menu'), false);
     initChevron()
     $("#profile").show();
     $("#programs").hide();
@@ -9,27 +8,28 @@ $(function () {
     $("[data-target]").on('click', function (e) {
         switch ($(this).data('target')) {
             case 'profile':
+                $(".nav-li").text('基本信息')
                 $("#profile").show()
                 $("#programs").hide()
                 $("#skills").hide()
                 $("#other").hide()
                 break;
             case 'programs':
+                $(".nav-li").text('项目经验')
                 $("#programs").show()
                 $("#profile").hide()
                 $("#skills").hide()
                 $("#other").hide()
-                setTimeout(function () {
-                    $("#xxxxx").trigger("click");
-                },5000)
                 break;
             case 'skills':
+                $(".nav-li").text('技能')
                 $("#skills").show()
                 $("#programs").hide()
                 $("#profile").hide()
                 $("#other").hide()
                 break;
             case 'other':
+                $(".nav-li").text('其他')
                 $("#other").show()
                 $("#programs").hide()
                 $("#skills").hide()
@@ -80,19 +80,18 @@ Accordion.prototype.dropdown = function (e) {
 
 function initImage() {
     var imgUrl = [
-        {title: '毕业证书', url: 'https://www.maoniangv5.win/images/c0485aa1d2e710abf7c0fdce7c5868e2.jpeg'},
-        {title: '学位证书', url: 'https://www.maoniangv5.win/images/dee87a47edb37334a41f3583bccc9aef.jpeg'},
-        {title: '卓越证书', url: 'https://www.maoniangv5.win/images/ef393098d9395e6e64ec0b596261d6c2.jpeg'}
+        {title: '毕业证书', url: 'images/coll/img1.jpg'},
+        {title: '其他证书', url: 'images/coll/img2.jpg'}
     ]
     var str = '';
     imgUrl.map(function (index) {
-        str += '<div class="col-md-4 col-xs-6">' +
+        str += '<div class="col-md-6 col-xs-12">' +
             '<div>' +
             '<a class="zooming" href="' + index.url + '" title="' + index.title + '">' +
             '<img src="' + index.url + '" class="img-responsive" alt="' + index.title + '" height="100%" width="auto">' +
             '</a>' +
             '<div>' +
-            '<p>' + index.title + '</p>' +
+            '<p class="img-p">' + index.title + '</p>' +
             '</div> </div> </div>'
     })
     $('#img-show-list').html(str);
